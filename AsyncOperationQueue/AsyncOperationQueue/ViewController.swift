@@ -9,23 +9,54 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let operationQueue = CompletionOperationQueue {
+    let asyncOperationQueue = CompletionOperationQueue {
+        //This block will execute when each time oerationque got empty
+        print("Completed:")
+    }
+    
+    let normalOperationQueue = CompletionOperationQueue {
         //This block will execute when each time oerationque got empty
         print("Completed:")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        operationQueue.maxConcurrentOperationCount = 3
+        normalOperationQueue.maxConcurrentOperationCount = 5
+        asyncOperationQueue.maxConcurrentOperationCount = 3
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        addOperation()
+    @IBAction func normalOperationTapped(_ sender: Any) {
+        addNormalOperation()
     }
     
-    func addOperation() {
-        print("Before Total operations: \(operationQueue.operationCount)")
+    @IBAction func asynOperationTapped(_ sender: Any) {
+        addAysncOperation()
+    }
+    
+    func addNormalOperation() {
+        print("MyNoramlOperation Before Total operations: \(normalOperationQueue.operationCount)")
+        var previousOperation: MyNoramlOperation?
+        for index in 1...10 {
+            let operation = MyNoramlOperation()
+            operation.name = "--\(index)--"
+            if let previous = previousOperation {
+                operation.addDependency(previous)
+            }
+            normalOperationQueue.addOperation(operation)
+            
+            previousOperation = operation
+        }
+        
+        
+        print("MyNoramlOperationAfter Total operations: \(normalOperationQueue.operationCount)")
+        //For syncronos we can wait using this method
+        //operationQueue.waitUntilAllOperationsAreFinished()
+        print("MyNoramlOperation After waiting for opetaions: \(normalOperationQueue.operationCount)")
+    }
+    
+    
+    func addAysncOperation() {
+        print("MyAsyncOperation Before Total operations: \(asyncOperationQueue.operationCount)")
         var previousOperation: MyAsyncOperation?
         for index in 1...10 {
             let operation = MyAsyncOperation()
@@ -33,16 +64,16 @@ class ViewController: UIViewController {
             if let previous = previousOperation {
                 operation.addDependency(previous)
             }
-            operationQueue.addOperation(operation)
+            asyncOperationQueue.addOperation(operation)
             
             previousOperation = operation
         }
         
         
-        print("After Total operations: \(operationQueue.operationCount)")
+        print("MyAsyncOperation After Total operations: \(asyncOperationQueue.operationCount)")
         //For syncronos we can wait using this method
         //operationQueue.waitUntilAllOperationsAreFinished()
-        print("After waiting for opetaions: \(operationQueue.operationCount)")
+        print("MyAsyncOperation After waiting for opetaions: \(asyncOperationQueue.operationCount)")
     }
     
 }

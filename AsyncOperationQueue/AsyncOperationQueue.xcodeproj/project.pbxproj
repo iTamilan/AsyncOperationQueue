@@ -15,6 +15,7 @@
 		432FBF3F22636DD5007C5CC9 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432FBF3C22636DD5007C5CC9 /* AsynchronousOperation.swift */; };
 		432FBF4022636DD5007C5CC9 /* CompletionOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432FBF3D22636DD5007C5CC9 /* CompletionOperationQueue.swift */; };
 		432FBF4122636DD5007C5CC9 /* MyAsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432FBF3E22636DD5007C5CC9 /* MyAsyncOperation.swift */; };
+		432FBF43226376EA007C5CC9 /* MyNoramlOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432FBF42226376EA007C5CC9 /* MyNoramlOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		432FBF3C22636DD5007C5CC9 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 		432FBF3D22636DD5007C5CC9 /* CompletionOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionOperationQueue.swift; sourceTree = "<group>"; };
 		432FBF3E22636DD5007C5CC9 /* MyAsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAsyncOperation.swift; sourceTree = "<group>"; };
+		432FBF42226376EA007C5CC9 /* MyNoramlOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoramlOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				432FBF3C22636DD5007C5CC9 /* AsynchronousOperation.swift */,
 				432FBF3D22636DD5007C5CC9 /* CompletionOperationQueue.swift */,
 				432FBF3E22636DD5007C5CC9 /* MyAsyncOperation.swift */,
+				432FBF42226376EA007C5CC9 /* MyNoramlOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				432FBF4122636DD5007C5CC9 /* MyAsyncOperation.swift in Sources */,
 				432FBF2C22636D8C007C5CC9 /* ViewController.swift in Sources */,
+				432FBF43226376EA007C5CC9 /* MyNoramlOperation.swift in Sources */,
 				432FBF4022636DD5007C5CC9 /* CompletionOperationQueue.swift in Sources */,
 				432FBF2A22636D8C007C5CC9 /* AppDelegate.swift in Sources */,
 				432FBF3F22636DD5007C5CC9 /* AsynchronousOperation.swift in Sources */,

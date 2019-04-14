@@ -10,15 +10,15 @@ import Foundation
 
 class AsynchronousOperation: Operation {
     override var isAsynchronous: Bool {
-        print("Operation \(self.name!) - isAsynchronous")
+        print("AsynchronousOperation \(self.name!) - isAsynchronous")
         return true
     }
     override var isExecuting: Bool {
-        print("Operation \(self.name!) - isExecuting")
+        print("AsynchronousOperation \(self.name!) - isExecuting")
         return state == .executing
     }
     override var isFinished: Bool {
-        print("Operation \(self.name!) - isFinished")
+        print("AsynchronousOperation \(self.name!) - isFinished")
         return state == .finished
     }
     var state = State.ready {
@@ -38,23 +38,23 @@ class AsynchronousOperation: Operation {
         fileprivate var keyPath: String { return "is" + self.rawValue }
     }
     override func start() {
-        print("Operation \(self.name!) - AsynchronousOperation Start function started")
+        print("AsynchronousOperation \(self.name!) -  Start function started")
         if self.isCancelled {
             state = .finished
         } else {
             state = .ready
             self.main()
         }
-        print("Operation \(self.name!) - AsynchronousOperation start function ended")
+        print("AsynchronousOperation \(self.name!) -  start function ended")
     }
     override func main() {
-        print("Operation \(self.name!) - AsynchronousOperation Main function started")
+        print("AsynchronousOperation \(self.name!) -  Main function started")
         if self.isCancelled {
             state = .finished
         } else {
             state = .executing
         }
-        print("Operation \(self.name!) - AsynchronousOperation Main function ended")
+        print("AsynchronousOperation \(self.name!) -  Main function ended")
     }
 }
 

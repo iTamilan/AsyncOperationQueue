@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  MyNoramlOperations.swift
 //  AsyncOperationQueue
 //
 //  Created by Tamilarasu on 14/04/19.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-class MyAsyncOperation: AsynchronousOperation {
+class MyNoramlOperation: Operation {
     
     // Created a seperate OperationQueue for AsyncProcess
     lazy var operationQueue: OperationQueue = {
@@ -19,23 +18,18 @@ class MyAsyncOperation: AsynchronousOperation {
     }()
     
     override func main() {
-        print("MyAsyncOperation \(self.name!) -  Main function started")
+        print("NoramlOperation \(self.name!) -  Main function started")
         super.main()
-        print("MyAsyncOperation \(self.name!) - Called Asyn inside operation")
+        print("NoramlOperation \(self.name!) - Called Asyn inside operation")
         
-
         //Here write a actual async opeation code
         
         operationQueue.addOperation {
             // Making delay
             sleep(10)
-            print("MyAsyncOperation \(self.name!) - Asyn response came")            
-            //Set the state to .finished once your operation completed
-            self.state = .finished
-            print("MyAsyncOperation \(self.name!) - After setting the state finished")
-            
+            print("NoramlOperation \(self.name!) - Asyn response came")
         }
-        print("MyAsyncOperation \(self.name!) -  Main function ended")
+        print("NoramlOperation \(self.name!) -  Main function ended")
     }
     
 }
